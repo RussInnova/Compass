@@ -54,14 +54,38 @@
 		53F347151D9E96C50082CF4E /* Compass */ = {
 			isa = PBXGroup;
 			children = (
+				53F3472A1D9E98E30082CF4E /* Model */,
+				53F347291D9E98D70082CF4E /* View */,
+				53F347281D9E98C60082CF4E /* Controller */,
 				53F347161D9E96C50082CF4E /* AppDelegate.swift */,
-				53F347181D9E96C50082CF4E /* ViewController.swift */,
-				53F3471A1D9E96C60082CF4E /* Main.storyboard */,
 				53F3471D1D9E96C60082CF4E /* Assets.xcassets */,
-				53F3471F1D9E96C60082CF4E /* LaunchScreen.storyboard */,
 				53F347221D9E96C60082CF4E /* Info.plist */,
 			);
 			path = Compass;
+			sourceTree = "<group>";
+		};
+		53F347281D9E98C60082CF4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				53F347181D9E96C50082CF4E /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		53F347291D9E98D70082CF4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				53F3471A1D9E96C60082CF4E /* Main.storyboard */,
+				53F3471F1D9E96C60082CF4E /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		53F3472A1D9E98E30082CF4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +120,7 @@
 				TargetAttributes = {
 					53F347121D9E96C50082CF4E = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = BR4MMYNW28;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -258,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BR4MMYNW28;
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = russinnova.Compass;
@@ -270,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = BR4MMYNW28;
 				INFOPLIST_FILE = Compass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = russinnova.Compass;
