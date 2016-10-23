@@ -10,17 +10,18 @@ import UIKit
 import MapKit
 import CoreMotion
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var mapView: MKMapView! {
         didSet {
+            mapView.delegate = self
             mapView.mapType = MKMapType.satellite
             mapView.isZoomEnabled = true
             mapView.isScrollEnabled = true;
         }
     }
-
+    let manager = CMMotionManager()
     @IBOutlet weak var containerViewHeight: NSLayoutConstraint!
     @IBOutlet weak var containerViewWidth: NSLayoutConstraint!
     @IBOutlet weak var compassNeedle: UIImageView!
@@ -29,8 +30,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var picthLbl: UILabel!
     @IBOutlet weak var mapFixedBtn: UIButton!
     
-    let manager = CMMotionManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -38,10 +37,20 @@ class ViewController: UIViewController {
     }
     
     func setupView(){
+        
         let side = sqrt(pow(view.frame.height/2, 2) + pow(view.frame.width/2, 2))
         print(2 * side)
         containerViewHeight.constant = 2 * side
         containerViewWidth.constant = 2 * side
+        let deltaX = 5.0
+        let deltaY = 5.0
+        var region = MKCoordinateRegion()
+        region.center.latitude = 40.0
+        region.center.longitude = -75.0
+        region.span.latitudeDelta = deltaX
+        region.span.longitudeDelta = deltaY
+        mapView.setRegion(region, animated: true )
+        mapView.isUserInteractionEnabled = true
     }
     
     func radiansToDegrees(radians: Double) -> Double {
@@ -50,15 +59,14 @@ class ViewController: UIViewController {
     }
     
     func deviceManagerSetup(btnPressed : Bool){
-        self.mapView.frame.origin.x = 0.0
-        self.mapView.frame.origin.y = 0.0
+
         var yaw: Double! = 0.0
         if btnPressed == true {
         if manager.isDeviceMotionAvailable == true {
-            manager.deviceMotionUpdateInterval = 0.1
+            
+            manager.deviceMotionUpdateInterval = 0.02
             let queue = OperationQueue()
             self.mapView.transform = CGAffineTransform.identity
-
             manager.startDeviceMotionUpdates(using: .xMagneticNorthZVertical, to: queue, withHandler: {
                 [weak self] (data:CMDeviceMotion?, error: Error?) in
                 if (data?.attitude) != nil {
@@ -79,7 +87,6 @@ class ViewController: UIViewController {
                 })
             }} else {
             manager.stopDeviceMotionUpdates()
-                self.mapView.transform = CGAffineTransform.identity
         }
     }
     @IBAction func mapOrientationBtnPressed(_ sender: UIButton) {
@@ -87,11 +94,9 @@ class ViewController: UIViewController {
         if mapFixedBtn.currentTitle == "mapFixed"
         {
             mapFixedBtn.setTitle("mapRotates", for: .normal)
-            mapView.transform = CGAffineTransform.identity
             deviceManagerSetup(btnPressed: true)
         } else {
             mapFixedBtn.setTitle("mapFixed", for: .normal)
-            mapView.transform = CGAffineTransform.identity
             deviceManagerSetup(btnPressed: false)
         }
     }

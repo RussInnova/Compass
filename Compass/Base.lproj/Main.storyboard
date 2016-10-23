@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0Q-uL-a7l">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r0Q-uL-a7l">
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OM4-5O-c97"/>
                                 </subviews>
@@ -34,10 +34,10 @@
                                     <constraint firstItem="OM4-5O-c97" firstAttribute="leading" secondItem="r0Q-uL-a7l" secondAttribute="leading" id="r8T-aW-ntG"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass_needle_red_blue" translatesAutoresizingMaskIntoConstraints="NO" id="Vzl-eV-kiu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass_needle_red_blue" translatesAutoresizingMaskIntoConstraints="NO" id="Vzl-eV-kiu">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Fji-9P-xld"/>
+                                    <constraint firstAttribute="width" constant="50" id="Fji-9P-xld"/>
                                     <constraint firstAttribute="height" constant="200" id="eov-38-vLs"/>
                                 </constraints>
                             </imageView>
@@ -109,8 +109,8 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="B9L-HC-WJR" secondAttribute="bottom" constant="37" id="An9-of-Cet"/>
                             <constraint firstItem="B9L-HC-WJR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OQ0-lb-SFu"/>
                             <constraint firstItem="Vzl-eV-kiu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QxJ-IO-ohG"/>
-                            <constraint firstItem="r0Q-uL-a7l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-0.5" id="b2q-dC-YHo"/>
-                            <constraint firstItem="r0Q-uL-a7l" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-19.5" id="kLR-l7-zPk"/>
+                            <constraint firstItem="r0Q-uL-a7l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b2q-dC-YHo"/>
+                            <constraint firstItem="r0Q-uL-a7l" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kLR-l7-zPk"/>
                             <constraint firstItem="n5g-Qw-uFl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="kne-qm-mA4"/>
                         </constraints>
                     </view>
